@@ -1,0 +1,340 @@
+<title>Casa Paloma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plaster:#F1E6D2;
+    --plaster-card:#FBF4E6;
+    --charcoal:#2E2419;
+    --charcoal-soft:#5A4C3B;
+    --marigold:#C6871F;
+    --marigold-ink:#8F5F12;
+    --brick:#A8402C;
+    --teal:#2F675D;
+    --line: rgba(46,36,25,0.14);
+    --shadow: 0 18px 40px -22px rgba(46,36,25,0.45);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --plaster:#1B140C;
+      --plaster-card:#241A10;
+      --charcoal:#F1E6D2;
+      --charcoal-soft:#C9B99C;
+      --marigold:#EFB24E;
+      --marigold-ink:#F6C978;
+      --brick:#DB8067;
+      --teal:#6EB3A4;
+      --line: rgba(241,230,210,0.14);
+      --shadow: 0 18px 40px -20px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --plaster:#1B140C;
+    --plaster-card:#241A10;
+    --charcoal:#F1E6D2;
+    --charcoal-soft:#C9B99C;
+    --marigold:#EFB24E;
+    --marigold-ink:#F6C978;
+    --brick:#DB8067;
+    --teal:#6EB3A4;
+    --line: rgba(241,230,210,0.14);
+    --shadow: 0 18px 40px -20px rgba(0,0,0,0.6);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--plaster);
+    color:var(--charcoal);
+    font-family:'Karla',-apple-system,'Segoe UI',sans-serif;
+    padding-inline:0;
+  }
+  h1,h2,h3{
+    font-family:'Bricolage Grotesque',system-ui,sans-serif;
+    text-wrap:balance;
+    margin:0;
+    color:var(--charcoal);
+  }
+  p{margin:0;}
+  a{color:var(--marigold-ink);}
+
+  .wrap{max-width:1080px;margin-inline:auto;padding-inline:20px;}
+
+  .eyebrow{
+    font-family:'Karla',sans-serif;
+    font-weight:700;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--marigold-ink);
+  }
+
+  /* HERO */
+  .hero{overflow:hidden;background:var(--charcoal);}
+  .hero img{
+    display:block;width:100%;
+    aspect-ratio:16/10;
+    object-fit:cover;
+    object-position:center 58%;
+  }
+  @media (max-width:520px){
+    .hero img{aspect-ratio:4/5;object-position:center 55%;}
+  }
+  .hero-content{
+    background:var(--charcoal);
+    color:#FBF4E6;
+    padding-block:34px;
+  }
+  .hero-content .eyebrow{color:#F6C978;}
+  .hero h1{
+    font-size:clamp(1.9rem, 4.8vw, 3.1rem);
+    font-weight:700;
+    line-height:1.06;
+    margin-top:.35em;
+    color:#FBF4E6;
+  }
+  .hero-sub{
+    margin-top:.6em;
+    font-size:1.04rem;
+    color:#E9DCC3;
+    max-width:48ch;
+  }
+
+  /* SECTIONS */
+  section{padding-block:56px;}
+  .section-line{border-top:1px solid var(--line);}
+
+  .intro{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:44px;
+    align-items:start;
+  }
+  .intro-copy h2{
+    font-size:clamp(1.5rem,3vw,2rem);
+    font-weight:700;
+    line-height:1.15;
+  }
+  .intro-copy p{
+    margin-top:16px;
+    font-size:1.04rem;
+    line-height:1.65;
+    color:var(--charcoal-soft);
+    max-width:56ch;
+  }
+  .intro-copy p + p{margin-top:14px;}
+
+  .spec-card{
+    background:var(--plaster-card);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:22px 24px;
+    box-shadow:var(--shadow);
+  }
+  .spec-card .eyebrow{margin-bottom:14px;display:block;}
+  .spec-list{list-style:none;margin:0;padding:0;display:grid;gap:11px;}
+  .spec-list li{
+    display:flex;justify-content:space-between;gap:12px;
+    font-size:.96rem;
+    padding-block:9px;
+    border-bottom:1px solid var(--line);
+  }
+  .spec-list li:last-child{border-bottom:none;}
+  .spec-list span:first-child{color:var(--charcoal-soft);}
+  .spec-list span:last-child{font-weight:600;text-align:right;}
+  .placeholder{color:var(--brick);font-style:italic;font-weight:500;}
+
+  /* GALLERY */
+  .gallery-head{margin-bottom:30px;max-width:60ch;}
+  .gallery-head h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-top:.35em;}
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:26px;
+  }
+  figure{margin:0;}
+  .gallery img{
+    width:100%;aspect-ratio:4/3;object-fit:cover;
+    border-radius:3px;
+    box-shadow:var(--shadow);
+  }
+  figcaption{margin-top:12px;}
+  figcaption .cap-title{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:600;font-size:1.02rem;
+  }
+  figcaption .cap-sub{
+    display:block;margin-top:3px;
+    font-size:.9rem;color:var(--charcoal-soft);
+  }
+
+  /* SETTING */
+  .setting{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:44px;
+    align-items:center;
+  }
+  .setting-copy p{
+    margin-top:16px;font-size:1.02rem;line-height:1.65;color:var(--charcoal-soft);
+  }
+  .setting-copy p + p{margin-top:14px;}
+  .setting img{
+    width:100%;border-radius:3px;box-shadow:var(--shadow);
+    aspect-ratio:4/3;object-fit:cover;
+  }
+  .fact-row{
+    display:flex;gap:22px;flex-wrap:wrap;margin-top:22px;
+  }
+  .fact{
+    border-left:3px solid var(--marigold);
+    padding-left:12px;
+  }
+  .fact b{display:block;font-size:1.15rem;font-family:'Bricolage Grotesque',sans-serif;}
+  .fact span{font-size:.86rem;color:var(--charcoal-soft);}
+
+  /* CTA */
+  .cta{
+    background:var(--charcoal);
+    color:var(--plaster);
+  }
+  .cta .wrap{
+    display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+    padding-block:50px;
+  }
+  .cta h2{color:var(--plaster);font-size:clamp(1.5rem,3vw,2.1rem);max-width:20ch;}
+  .cta-actions{display:flex;flex-direction:column;gap:6px;}
+  .cta-btn{
+    display:inline-block;
+    background:var(--marigold);
+    color:#241A10;
+    font-weight:700;
+    font-family:'Karla',sans-serif;
+    padding:14px 26px;
+    border-radius:3px;
+    text-decoration:none;
+    box-shadow:0 10px 26px -12px rgba(198,135,31,.6);
+  }
+  .cta-note{font-size:.85rem;color:#C9B99C;}
+
+  footer{
+    padding-block:22px;
+    text-align:center;
+    font-size:.82rem;
+    color:var(--charcoal-soft);
+  }
+
+  @media (max-width:760px){
+    .intro, .setting{grid-template-columns:1fr;}
+    .setting img{order:-1;}
+    .gallery{grid-template-columns:1fr;}
+    section{padding-block:40px;}
+    .cta .wrap{padding-block:40px;text-align:left;}
+  }
+</style>
+
+<div class="hero">
+  <img src="images/hero.jpg" alt="Palapa-roofed home on a hillside above Cabo San Lucas, with the ocean and Land's End rock formations visible in the distance">
+  <div class="hero-content">
+    <div class="wrap">
+      <span class="eyebrow">Paloma Village &middot; Cabo San Lucas, BCS, M&eacute;xico</span>
+      <h1>A palapa roof above Land&rsquo;s End.</h1>
+      <p class="hero-sub">A hand-built casita above the Sea of Cort&eacute;s &mdash; thatched greatroom, a rooftop terrace strung between two palapas, and views that run from the cactus scrub straight down to the marina.</p>
+    </div>
+  </div>
+</div>
+
+<section class="intro">
+  <div class="wrap intro" style="padding-inline:20px;">
+    <div class="intro-copy">
+      <span class="eyebrow">The house</span>
+      <h2>Built for the way Baja actually lives.</h2>
+      <p>The whole ground floor opens under a single traditional palapa roof &mdash; kitchen, dining, and living room sharing one tall, thatched ceiling with the desert light coming in through the clerestory glass block above the cabinets.</p>
+      <p>Upstairs, a second palapa shelters the rooftop terrace: a mosaic-tile path winds between a built-in stone bar, a hammock strung across the beams, and a wall of lounge chairs facing the water. Sunset from up there runs pink and gold straight over the arches at Land's End.</p>
+    </div>
+    <div class="spec-card">
+      <span class="eyebrow">At a glance</span>
+      <ul class="spec-list">
+        <li><span>Price</span><span class="placeholder">[Ask price]</span></li>
+        <li><span>Bedrooms</span><span class="placeholder">[#]</span></li>
+        <li><span>Bathrooms</span><span class="placeholder">[#]</span></li>
+        <li><span>Lot size</span><span class="placeholder">[# m&sup2;]</span></li>
+        <li><span>Built</span><span class="placeholder">[Year]</span></li>
+        <li><span>Roof</span><span>Traditional palapa (palm thatch)</span></li>
+        <li><span>Location</span><span>Paloma Village</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<section class="gallery-sec">
+  <div class="wrap">
+    <div class="gallery-head">
+      <span class="eyebrow">A walk through</span>
+      <h2>Every room built for the climate, not against it.</h2>
+    </div>
+    <div class="gallery">
+      <figure>
+        <img src="images/terrace.jpg" alt="Rooftop terrace with a mosaic tile pathway, a stone palapa-roofed bar, a hammock, and lounge chairs facing the mountains">
+        <figcaption>
+          <span class="cap-title">The rooftop terrace</span>
+          <span class="cap-sub">A hand-set mosaic path connects a stone bar to a hammock and a quiet corner of lounge chairs &mdash; built for evenings, not just photos.</span>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="images/kitchen-dining.jpg" alt="Open kitchen and dining area under a high thatched palapa ceiling, with colorful folk-art decor and papel picado banners">
+        <figcaption>
+          <span class="cap-title">Kitchen &amp; greatroom</span>
+          <span class="cap-sub">Granite counters and a full bar seat eight comfortably, under a palapa ceiling tall enough to keep the whole space cool through the afternoon.</span>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="images/living-room.jpg" alt="Living room with vaulted thatched ceiling, tiled roof beams, arched wall niches, and a comfortable sectional sofa">
+        <figcaption>
+          <span class="cap-title">The living room</span>
+          <span class="cap-sub">Vaulted palapa ceiling, hand-tiled roofline, and arched niches built into the plaster &mdash; the kind of detail work that isn't done this way anymore.</span>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="images/sunset.jpg" alt="Sunset view from the terrace over the Cabo San Lucas marina, with the Land's End rock arches and a cruise ship visible on the horizon">
+        <figcaption>
+          <span class="cap-title">The view, every evening</span>
+          <span class="cap-sub">Land's End, the marina, and the harbor entrance, laid out below the terrace &mdash; the same sunset the cruise ships stop for.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<section class="setting-sec">
+  <div class="wrap setting">
+    <img src="images/entry.jpg" alt="Red stucco entryway at night, lit by wall sconces, with a tiled staircase and a Mexican flag above the door">
+    <div class="setting-copy">
+      <span class="eyebrow">The setting</span>
+      <h2>Paloma Village, minutes from everything.</h2>
+      <p>Tucked into the hillside desert scrub above town, with palapa roofs and bougainvillea for neighbors &mdash; quiet enough to hear the wind, close enough that Costco and Walmart are both a short drive, not an expedition.</p>
+      <p>Land's End and the marina sit at the bottom of the hill; downtown Cabo San Lucas and the airport corridor are both easy reach from the front gate.</p>
+      <div class="fact-row">
+        <div class="fact"><b>Hillside</b><span>Above the marina, ocean-facing</span></div>
+        <div class="fact"><b>Walkable errands</b><span>Costco &amp; Walmart nearby</span></div>
+        <div class="fact"><b>Land's End</b><span>Visible from the terrace</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Come see the sunset from the terrace yourself.</h2>
+    <div class="cta-actions">
+      <a class="cta-btn" href="mailto:dave.haberman@gmail.com?subject=Casa%20Paloma%20-%20Paloma%20Village">Ask about Casa Paloma</a>
+      <span class="cta-note">dave.haberman@gmail.com</span>
+    </div>
+  </div>
+</section>
+
+<footer>Casa Paloma &middot; Paloma Village, Cabo San Lucas, Baja California Sur, M&eacute;xico</footer>
